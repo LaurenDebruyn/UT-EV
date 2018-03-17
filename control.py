@@ -13,7 +13,7 @@ start_time = -1
 current_time = -1
 
 def setup():
-    GPIO.setmode(GPIO.BMC)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(OUTPUT_PIN_LEFT, GPIO.OUT)
     GPIO.setup(OUTPUT_PIN_RIGHT, GPIO.OUT)
 
