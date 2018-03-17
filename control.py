@@ -6,8 +6,8 @@ OUTPUT_PIN_LEFT = 15
 OUTPUT_PIN_RIGHT = 18
 REQUEST_URL = "https://utev.org/Data?q=move"
 # INTERVAL_MS = 0
-FORWARD_DURATION_MS = 500
-TURN_DURATION_MS = 150
+FORWARD_DURATION = 1
+TURN_DURATION = 1
 
 start_time = -1
 current_time = -1
@@ -28,7 +28,7 @@ def drive_forward():
     current_time = time.time()
     GPIO.output(OUTPUT_PIN_LEFT, GPIO.HIGH)
     GPIO.output(OUTPUT_PIN_RIGHT, GPIO.HIGH)
-    while current_time <= start_time + FORWARD_DURATION_MS:
+    while current_time <= start_time + FORWARD_DURATION:
         current_time = time.time()
     GPIO.output(OUTPUT_PIN_LEFT, GPIO.LOW)
     GPIO.output(OUTPUT_PIN_RIGHT, GPIO.LOW)
@@ -37,7 +37,7 @@ def turn_left():
     start_time = time.time()
     current_time = time.time()
     GPIO.output(OUTPUT_PIN_RIGHT, GPIO.HIGH)
-    while current_time <= start_time + TURN_DURATION_MS:
+    while current_time <= start_time + TURN_DURATION:
         current_time = time.time()
     GPIO.output(OUTPUT_PIN_RIGHT, GPIO.LOW)
 
@@ -45,7 +45,7 @@ def turn_right():
     start_time = time.time()
     current_time = time.time()
     GPIO.output(OUTPUT_PIN_LEFT, GPIO.HIGH)
-    while current_time <= start_time + TURN_DURATION_MS:
+    while current_time <= start_time + TURN_DURATION:
         current_time = time.time()
     GPIO.output(OUTPUT_PIN_LEFT, GPIO.LOW)
 
@@ -74,4 +74,5 @@ if __name__ == "__main__":
             time.sleep(1)
         print("end")
     finally:
+        print("cleanup")
         GPIO.cleanup()
