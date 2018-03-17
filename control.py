@@ -65,6 +65,7 @@ def execute(commands):
 
 
 if __name__ == "__main__":
+    setup()
     try:
         print("start")
         while True:
