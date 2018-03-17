@@ -27,3 +27,5 @@ def loop():
             time.wait(5000)
 
         loopTime = currentTime
+    else:
+        GPIO.OUT(OUTPUT_PIN, GPIO.LOW)
