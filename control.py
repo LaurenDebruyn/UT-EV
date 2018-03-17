@@ -65,9 +65,12 @@ def execute(commands):
 
 
 if __name__ == "__main__":
-    print("start")
-    while True:
-        commands = make_request()
-        execute(commands)
-        time.sleep(1)
-    print("end")
+    try:
+        print("start")
+        while True:
+            commands = make_request()
+            execute(commands)
+            time.sleep(1)
+        print("end")
+    finally:
+        GPIO.cleanup()
